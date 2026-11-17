@@ -1,0 +1,5 @@
+progress.json
+progress.json.bak
+solutions/
+__pycache__/
+*.pyc
