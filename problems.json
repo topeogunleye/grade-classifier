@@ -1,0 +1,321 @@
+{
+ "project": "Student Grade Analyzer (Python, standard library only)",
+ "review_weeks": 0.5,
+ "total_weeks": 8,
+ "stages": {
+  "1": {
+   "name": "print/input + if/else",
+   "weeks": 1.0,
+   "built": true,
+   "concept": [
+    "print(x) shows a value. input() returns TEXT; int(text) turns it into a whole number.",
+    "Compare with ==  !=  <  >  <=  >=.  Combine with and / or / not.",
+    "% is the remainder: 8 % 4 is 0, 7 % 4 is 3.",
+    "/ divides and gives a decimal; round(x, 1) keeps one decimal place.",
+    "if / elif / else runs the FIRST branch whose condition is True and skips the rest, so ORDER matters.",
+    "Indent 4 spaces to put a line inside a branch.",
+    "Bugs live on borders (89 vs 90, 59 vs 60): always test the border values."
+   ]
+  },
+  "2": {
+   "name": "for/while loops",
+   "weeks": 1.0,
+   "built": false
+  },
+  "3": {
+   "name": "lists and strings",
+   "weeks": 1.0,
+   "built": false
+  },
+  "4": {
+   "name": "functions",
+   "weeks": 1.0,
+   "built": false
+  },
+  "5": {
+   "name": "dicts",
+   "weeks": 1.5,
+   "built": false
+  },
+  "6": {
+   "name": "stack idea and recursion",
+   "weeks": 1.5,
+   "built": false
+  }
+ },
+ "problems": [
+  {
+   "id": "grade-classifier",
+   "title": "Grade Classifier",
+   "stage": 1,
+   "ready": true,
+   "concept": "if / elif / else, comparisons",
+   "feeds": "Analyzer requirement: assign a letter grade (A-F)",
+   "statement": "Read ONE score (a whole number) with input(). Print its letter grade: A for 90-100, B for 80-89, C for 70-79, D for 60-69, F for 0-59. Any score below 0 or above 100 prints Invalid. Use plain input() with nothing inside the brackets.",
+   "examples": [
+    {
+     "input": "95",
+     "output": "A"
+    },
+    {
+     "input": "69",
+     "output": "D"
+    },
+    {
+     "input": "105",
+     "output": "Invalid"
+    }
+   ],
+   "tests": [
+    {
+     "input": "95",
+     "output": "A"
+    },
+    {
+     "input": "90",
+     "output": "A"
+    },
+    {
+     "input": "89",
+     "output": "B"
+    },
+    {
+     "input": "80",
+     "output": "B"
+    },
+    {
+     "input": "79",
+     "output": "C"
+    },
+    {
+     "input": "70",
+     "output": "C"
+    },
+    {
+     "input": "69",
+     "output": "D"
+    },
+    {
+     "input": "60",
+     "output": "D"
+    },
+    {
+     "input": "59",
+     "output": "F"
+    },
+    {
+     "input": "0",
+     "output": "F"
+    },
+    {
+     "input": "100",
+     "output": "A"
+    },
+    {
+     "input": "-1",
+     "output": "Invalid"
+    },
+    {
+     "input": "101",
+     "output": "Invalid"
+    },
+    {
+     "input": "85",
+     "output": "B"
+    }
+   ],
+   "hints": [
+    "Try 89, 90, 59 and 60 by hand. Which numbers sit exactly on the border between two grades? What decides which side they fall on?",
+    "An if/elif/else chain runs only the FIRST branch whose condition is True. So you can check from the top (is it 90 or more?) and let each elif assume the earlier ones failed. Deal with invalid scores before any grade check.",
+    "Order of checks: first invalid (below 0 or above 100), then 90 or more, 80 or more, 70 or more, 60 or more, and everything else is F. Print the matching letter."
+   ]
+  },
+  {
+   "id": "top-of-three",
+   "title": "Top of Three",
+   "stage": 1,
+   "ready": true,
+   "concept": "comparing values, keeping a 'best so far'",
+   "feeds": "Analyzer requirement: find the top student (highest score)",
+   "statement": "Read THREE whole numbers, one per input() call (three lines). Print the largest. If there is a tie for largest, print that value once.",
+   "examples": [
+    {
+     "input": "3\n7\n5",
+     "output": "7"
+    },
+    {
+     "input": "2\n2\n2",
+     "output": "2"
+    }
+   ],
+   "tests": [
+    {
+     "input": "3\n7\n5",
+     "output": "7"
+    },
+    {
+     "input": "9\n1\n4",
+     "output": "9"
+    },
+    {
+     "input": "2\n2\n2",
+     "output": "2"
+    },
+    {
+     "input": "-1\n-5\n-3",
+     "output": "-1"
+    },
+    {
+     "input": "5\n5\n1",
+     "output": "5"
+    },
+    {
+     "input": "1\n8\n8",
+     "output": "8"
+    },
+    {
+     "input": "0\n-2\n-1",
+     "output": "0"
+    },
+    {
+     "input": "100\n0\n50",
+     "output": "100"
+    }
+   ],
+   "hints": [
+    "Cover one number with your hand. How do you decide which of the other two is bigger? Now how would you bring the third one in?",
+    "Keep a variable (say biggest) holding the best value seen so far. Each new number gets compared against it with > and may replace it.",
+    "Put the first number into biggest. Then use two separate if checks (not elif): one for the second number, one for the third. Each may replace biggest. Print biggest at the end."
+   ]
+  },
+  {
+   "id": "student-report",
+   "title": "Student Report Line",
+   "stage": 1,
+   "ready": true,
+   "concept": "combining input, arithmetic and an if/elif chain",
+   "feeds": "Level 1: one line per student with name, average and grade",
+   "statement": "Read a name, then three scores (Maths, English, Science), each on its own input() line. If any score is below 0 or above 100, print exactly: Invalid score. Otherwise print: NAME: AVERAGE (GRADE) where AVERAGE is the mean of the three scores rounded to 1 decimal place, and GRADE uses the same A-F bands as the Grade Classifier, applied to the exact average. Example: Ada: 88.3 (B)",
+   "examples": [
+    {
+     "input": "Ada\n88\n92\n85",
+     "output": "Ada: 88.3 (B)"
+    },
+    {
+     "input": "Chioma\n70\n65\n72",
+     "output": "Chioma: 69.0 (D)"
+    }
+   ],
+   "tests": [
+    {
+     "input": "Ada\n88\n92\n85",
+     "output": "Ada: 88.3 (B)"
+    },
+    {
+     "input": "Tunde\n75\n80\n91",
+     "output": "Tunde: 82.0 (B)"
+    },
+    {
+     "input": "Chioma\n70\n65\n72",
+     "output": "Chioma: 69.0 (D)"
+    },
+    {
+     "input": "Bayo\n100\n100\n100",
+     "output": "Bayo: 100.0 (A)"
+    },
+    {
+     "input": "Zed\n0\n0\n0",
+     "output": "Zed: 0.0 (F)"
+    },
+    {
+     "input": "Ife\n95\n90\n91",
+     "output": "Ife: 92.0 (A)"
+    },
+    {
+     "input": "Kemi\n60\n60\n60",
+     "output": "Kemi: 60.0 (D)"
+    },
+    {
+     "input": "Obi\n101\n50\n50",
+     "output": "Invalid score"
+    },
+    {
+     "input": "Sade\n50\n-5\n50",
+     "output": "Invalid score"
+    },
+    {
+     "input": "Uche\n59\n60\n59",
+     "output": "Uche: 59.3 (F)"
+    }
+   ],
+   "hints": [
+    "Split the job. What do you need to know before you can print the line? Which earlier problem already solved part of it?",
+    "Average = total divided by 3 (the / sign gives a decimal). round(x, 1) keeps one decimal place. Reuse your grade ladder, but feed it the average instead of a single score.",
+    "Order: read the name; read the three scores; if any is out of range print Invalid score and stop that path; otherwise add them, divide by 3, run the grade checks on that average, then print name, rounded average and letter in the required format."
+   ]
+  },
+  {
+   "id": "later-1",
+   "title": "Class totals with loops",
+   "stage": 2,
+   "ready": false,
+   "concept": "for/while; sum, count, average over many scores"
+  },
+  {
+   "id": "later-2",
+   "title": "Read scores until 'done'",
+   "stage": 2,
+   "ready": false,
+   "concept": "while loop with a sentinel; validate 0-100 and re-ask"
+  },
+  {
+   "id": "later-3",
+   "title": "Highest and lowest of N scores",
+   "stage": 2,
+   "ready": false,
+   "concept": "loop with best-so-far (generalises Top of Three)"
+  },
+  {
+   "id": "later-4",
+   "title": "Scores in a list: stats",
+   "stage": 3,
+   "ready": false,
+   "concept": "lists; min/max/average; top and lowest student"
+  },
+  {
+   "id": "later-5",
+   "title": "Aligned table rows",
+   "stage": 3,
+   "ready": false,
+   "concept": "string formatting and padding; ranking by average"
+  },
+  {
+   "id": "later-6",
+   "title": "average() and letter_grade() functions",
+   "stage": 4,
+   "ready": false,
+   "concept": "rewrite Stage 1 code as functions; build the test runner"
+  },
+  {
+   "id": "later-7",
+   "title": "Students as a dict",
+   "stage": 5,
+   "ready": false,
+   "concept": "name -> scores; dict of dicts per subject"
+  },
+  {
+   "id": "later-8",
+   "title": "Menu: add / edit / remove",
+   "stage": 5,
+   "ready": false,
+   "concept": "dict updates, validation, menu loop"
+  },
+  {
+   "id": "later-9",
+   "title": "Undo stack + report file",
+   "stage": 6,
+   "ready": false,
+   "concept": "stack idea for undo; write the report file (csv/text)"
+  }
+ ]
+}
