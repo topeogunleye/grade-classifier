@@ -26,9 +26,9 @@ On Windows you may need `py` instead of `python`. On macOS/Linux you may need `p
 ## Quick start
 
 ```
-git clone <this-repo-url>
-cd <repo-folder>
-python coach.py
+git clone https://github.com/topeogunleye/grade-classifier
+cd grade-classifier
+
 ```
 
 You will see your schedule and the list of problems.
