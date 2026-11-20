@@ -1,0 +1,22 @@
+INDIVIDUAL REPORT CARD
+Student: Emeka
+Rank: 5 of 5
+Grade: F
+Overall average: 53.00
+Class average: 75.20
+
+Maths
+  Coursework: 45.00; exam: 50.00
+  Weighted score: 48.00
+  Subject class average: 73.00
+  Difference from subject class average: -25.00
+English
+  Coursework: 50.00; exam: 55.00
+  Weighted score: 53.00
+  Subject class average: 75.20
+  Difference from subject class average: -22.20
+Science
+  Coursework: 55.00; exam: 60.00
+  Weighted score: 58.00
+  Subject class average: 77.40
+  Difference from subject class average: -19.40

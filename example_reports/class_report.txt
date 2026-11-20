@@ -1,0 +1,23 @@
+STUDENT GRADE ANALYZER
+Weighted subject scores
+Rank  Student          Maths   English   Science   Average   Grade
+1     Ada              86.00     90.00     82.00     86.00       B
+1     Bola             90.00     82.00     86.00     86.00       B
+3     Tunde            78.00     83.00     88.00     83.00       B
+4     Chioma           63.00     68.00     73.00     68.00       D
+5     Emeka            48.00     53.00     58.00     53.00       F
+
+Class average: 75.20
+Median: 83.00
+Population standard deviation: 12.95
+Top: Ada, Bola (86.00)
+Lowest: Emeka (53.00)
+
+Subject averages:
+  Maths: 73.00
+  English: 75.20
+  Science: 77.40
+Strongest subject(s): Science (77.40)
+Weakest subject(s): Maths (73.00)
+Below pass mark (60): Emeka
+Above 80: Ada, Bola, Tunde

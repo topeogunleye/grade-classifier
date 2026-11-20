@@ -1,0 +1,22 @@
+INDIVIDUAL REPORT CARD
+Student: Chioma
+Rank: 4 of 5
+Grade: D
+Overall average: 68.00
+Class average: 75.20
+
+Maths
+  Coursework: 60.00; exam: 65.00
+  Weighted score: 63.00
+  Subject class average: 73.00
+  Difference from subject class average: -10.00
+English
+  Coursework: 65.00; exam: 70.00
+  Weighted score: 68.00
+  Subject class average: 75.20
+  Difference from subject class average: -7.20
+Science
+  Coursework: 70.00; exam: 75.00
+  Weighted score: 73.00
+  Subject class average: 77.40
+  Difference from subject class average: -4.40

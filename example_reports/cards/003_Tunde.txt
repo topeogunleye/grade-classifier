@@ -1,0 +1,22 @@
+INDIVIDUAL REPORT CARD
+Student: Tunde
+Rank: 3 of 5
+Grade: B
+Overall average: 83.00
+Class average: 75.20
+
+Maths
+  Coursework: 75.00; exam: 80.00
+  Weighted score: 78.00
+  Subject class average: 73.00
+  Difference from subject class average: +5.00
+English
+  Coursework: 80.00; exam: 85.00
+  Weighted score: 83.00
+  Subject class average: 75.20
+  Difference from subject class average: +7.80
+Science
+  Coursework: 85.00; exam: 90.00
+  Weighted score: 88.00
+  Subject class average: 77.40
+  Difference from subject class average: +10.60

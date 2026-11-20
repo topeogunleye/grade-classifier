@@ -1,0 +1,22 @@
+INDIVIDUAL REPORT CARD
+Student: Ada
+Rank: 1 of 5
+Grade: B
+Overall average: 86.00
+Class average: 75.20
+
+Maths
+  Coursework: 80.00; exam: 90.00
+  Weighted score: 86.00
+  Subject class average: 73.00
+  Difference from subject class average: +13.00
+English
+  Coursework: 90.00; exam: 90.00
+  Weighted score: 90.00
+  Subject class average: 75.20
+  Difference from subject class average: +14.80
+Science
+  Coursework: 70.00; exam: 90.00
+  Weighted score: 82.00
+  Subject class average: 77.40
+  Difference from subject class average: +4.60
