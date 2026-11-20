@@ -1,4 +1,94 @@
 # Student Grade Analyzer
+"""
+================================================================================
+STUDENT GRADE ANALYZER - EDUCATIONAL GRADING & REPORTING SYSTEM (LEVELS 3 & 4)
+================================================================================
+
+OVERVIEW
+--------
+The Student Grade Analyzer is a modular, standalone Python program designed for
+classroom educators. It automates the calculation, analysis, reporting, and
+record management of student academic performance across multiple academic subjects
+and evaluation components (Coursework and Examinations).
+
+This system strictly relies on Python's Standard Library (version 3.8+) without
+requiring any third-party packages or external dependencies.
+
+DATA FLOW & ARCHITECTURE
+------------------------
+The application implements a unidirectional data-processing pipeline:
+
+  +-----------------------+       +-------------------------+
+  |     settings.json     |       |       term2.csv         |
+  | (Weights, Thresholds) |       | (Raw Component Scores)  |
+  +-----------+-----------+       +------------+------------+
+              |                                |
+              v                                v
+     [ load_settings() ]              [ load_students() ]
+     (Schema Validation)              (Row/Type Checking)
+              |                                |
+              +---------------+----------------+
+                              |
+                              v
+                   [ calculate_results() ]
+                   - Weighted Component Calculation
+                   - Overall Student Averages (10-decimal precision)
+                   - Standard Competition Ranking ("1224" Scheme)
+                   - Letter Grade Assignment
+                              |
+       +----------------------+----------------------+
+       |                      |                      |
+       v                      v                      v
+[ class_statistics() ]  [ results_table() ]   [ compare_terms() ]
+- Population Std Dev    - Dynamically Aligned - Longitudinal Tracking
+- Median & Mean           Text Tables         - Matched Student Deltas
+- Subject Averages                            - Unmatched Student Lists
+       |                      |                      |
+       +----------------------+                      |
+       |                                             |
+       v                                             v
+[ report_text() / show_grade_chart() ]        [ term_comparison.txt ]
+- Summary Narrative Reports                   - Comparison Summary
+- ASCII Distribution Bar Charts
+       |
+       +-----------------------------+
+       |                             |
+       v                             v
+[ export_reports() ]       [ create_report_cards() ]
+- class_report.txt         - Timestamped Folder Structure
+- calculated_results.csv   - Individual Student Report Cards
+                           - Subject Class Average Deltas
+
+KEY MATHEMATICAL & DESIGN DECISIONS
+-----------------------------------
+1. Floating-Point Normalization:
+   IEEE 754 binary floating-point representation can introduce microscopic
+   precision errors (e.g., 0.1 + 0.2 != 0.3). To eliminate floating-point noise
+   and guarantee deterministic tie handling, all intermediate weighted scores
+   and student averages are rounded to 10 decimal places (`round(value, 10)`),
+   while presentation layers format numbers to 2 decimal places (`:.2f`).
+
+2. Standard Competition Ranking ("1224" Ranking):
+   When two or more students achieve identical overall averages, they share the
+   same rank. The subsequent student receives a rank that reflects the total
+   number of students ranking ahead of them.
+   For example, if two students tie for 1st place, both receive Rank 1, and the
+   next student receives Rank 3 (not Rank 2).
+
+3. Population Standard Deviation (pstdev):
+   Because the dataset represents the complete roster of an entire class rather
+   than a random sample drawn from a larger population, the population standard
+   deviation (dividing variance by N rather than N - 1) is calculated. For a
+   single-student class, the population standard deviation is exactly 0.0.
+
+4. Atomic File Persistence:
+   To prevent data corruption if disk writes are interrupted or fail due to
+   permissions or hardware issues, files are written first to a temporary file
+   (`.tmp`) and then atomically replaced (`Path.replace()`). In-memory records
+   are only updated after disk operations succeed completely.
+
+================================================================================
+"""
 
 ## Complete Levels 3 and 4
 
