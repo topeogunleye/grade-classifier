@@ -246,22 +246,21 @@ def show_report():
     highest = max(averages.values())
     lowest = min(averages.values())
 
-    print("\nTop student(s):")
+    
     for row in rows:
         name = row[1]
         if averages[name] == highest:
+            print("\nTop student(s):")
             print(f"{name}: {highest:.1f}")
 
-    print("\nLowest student(s):")
-    for row in rows:
-        name = row[1]
         if averages[name] == lowest:
+            print("\nLowest student(s):")
             print(f"{name}: {lowest:.1f}")
 
-
+        
 # Export the ranked student results to another CSV.
 def export_report():
-    rows, averages = get_report()
+    rows, _ = get_report()
     temporary = REPORT_FILE.with_suffix(".tmp")
 
     with temporary.open("w", newline="", encoding="utf-8") as file:
@@ -292,8 +291,8 @@ def main():
         print("2. Add student")
         print("3. Edit scores")
         print("4. Remove student")
-        print("5. Exit")
-        print("6. Export CSV report")
+        print("5. Export CSV report")
+        print("6. Exit")
 
         choice = input("Choose 1-6: ").strip()
 
@@ -306,10 +305,10 @@ def main():
         elif choice == "4":
             remove_student()
         elif choice == "5":
+            export_report()
+        elif choice == "6":
             print("Goodbye!")
             break
-        elif choice == "6":
-            export_report()
         else:
             print("Invalid choice. Enter 1-6.")
 
